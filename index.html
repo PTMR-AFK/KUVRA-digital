@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KUVRA Digital | Soluciones Digitales Inmersivas</title>
+    <meta name="description" content="KUVRA Digital - Agencia de desarrollo web premium y diseño interactivo. Creamos experiencias inmersivas 3D y de alto impacto.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Space+Mono:wght@400;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navbar (Sticky & Transparent) -->
+    <header class="header" id="main-header">
+        <div class="nav-left">
+            <span class="status-indicator"></span>
+            <span class="status-text">KUVRA LAB // LIVE</span>
+        </div>
+        
+        <div class="nav-center">
+            <a href="#seccion-1-parte-1" class="logo">KUVRA <span class="logo-accent">digital</span></a>
+        </div>
+        
+        <nav class="nav-right">
+            <a href="#seccion-2" class="nav-link">Servicios</a>
+            <a href="#seccion-4" class="nav-link">Planes</a>
+            <a href="#seccion-5" class="nav-link">Confianza</a>
+            <a href="#seccion-6" class="nav-link">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Main Scroll Container -->
+    <main class="scroll-container" id="scroll-main">
+        
+        <!-- SECCIÓN 1 (Tonos Joya + Humo + Secuencia de Imágenes Canvas) -->
+        <section id="seccion-1" class="section-3part">
+            <!-- Absolute Snap Anchors for CSS Scroll Snap -->
+            <div id="seccion-1-parte-1" class="snap-anchor"></div>
+            <div id="seccion-1-parte-2" class="snap-anchor"></div>
+            
+            <!-- Sticky Wrapper covering 100vh while scrolling through parent's 600vh -->
+            <div class="sticky-wrapper">
+                <!-- Background Image Sequence Canvas (Replaces Video Tag) -->
+                <canvas id="frame-canvas" class="smoke-canvas"></canvas>
+                
+                <!-- Background Canvas for Interactive Smoke -->
+                <canvas id="smoke-canvas" class="smoke-canvas"></canvas>
+                
+                <div class="section-content">
+                    <div class="hero-text">
+                        <h1 class="main-title text-glow-jewel load-fade-in" id="reveal-title">
+                            TU NEGOCIO EN EL MAPA
+                        </h1>
+                    </div>
+                </div>
+                
+                <div class="scroll-indicator">
+                    <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+                    <span>Desliza para explorar</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2 (Azul Eléctrico + Magenta) -->
+        <section id="seccion-2" class="section sec-blue">
+            <div class="ambient-glow"></div>
+            <canvas id="services-bg-canvas" class="smoke-canvas"></canvas>
+            <div class="section-content">
+                <div class="hero-text">
+                    <h1 class="main-title">VENTAS QUE IMPULSAN</h1>
+                </div>
+                
+                <!-- Cards Grid -->
+                <div class="cards-grid">
+                    <!-- Card 1 -->
+                    <div class="val-card card-stagger-1">
+                        <div class="card-icon-wrapper">
+                            <svg class="funnel-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 12H56L36 36V52L28 46V36L8 12Z" stroke="var(--accent-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Arquitectura de Conversión</h3>
+                        <span class="card-subtitle">El Pilar Técnico</span>
+                        <p>No creamos sitios web, construimos máquinas de ventas. Eliminamos la fricción en cada punto de contacto, optimizando el recorrido del usuario para maximizar el valor de vida del cliente (LTV).</p>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="val-card card-stagger-2">
+                        <div class="card-icon-wrapper">
+                            <div class="counter-number" data-target="150">0%</div>
+                        </div>
+                        <h3>Inteligencia de Datos</h3>
+                        <span class="card-subtitle">El Pilar Analítico</span>
+                        <p>Adiós a las suposiciones. Implementamos sistemas de tracking de alta precisión para medir cada clic, escalando lo que realmente funciona y eliminando lo que drena tu presupuesto.</p>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="val-card card-stagger-3 card-pulse">
+                        <div class="card-icon-wrapper">
+                            <svg class="pulse-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 32H20L26 16L34 48L40 32H56" stroke="var(--accent-jewel)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Aceleración de Flujos</h3>
+                        <span class="card-subtitle">El Pilar de Crecimiento</span>
+                        <p>Automatizamos la captación y el seguimiento. Tus clientes reciben el mensaje correcto en el momento exacto, garantizando una tasa de conversión constante sin intervención manual.</p>
+                    </div>
+                </div>
+                
+                <!-- Section CTA -->
+                <div class="section-cta">
+                    <h4 class="cta-question">¿Listo para escalar?</h4>
+                    <a href="#seccion-5" class="cta-button-ghost">Auditar Ecosistema Digital</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3 (Green/Teal/Cyan) -->
+        <section id="seccion-3" class="section sec-green">
+            <!-- 3D Car WebGL Canvas -->
+            <canvas id="car-3d-canvas"></canvas>
+            <div class="ambient-glow"></div>
+            <div class="section-content">
+                <div class="hero-text">
+                    <h1 class="main-title">PRESENCIA DIGITAL PREMIUM</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4 (Gris Platino / Estructura del Configurador) -->
+        <section id="seccion-4" class="section sec-platinum">
+            <div class="ambient-glow"></div>
+            
+            <div class="cyber-grid-overlay">
+                <span class="grid-coordinate top-left">LOC // SEC_04_INIT</span>
+                <span class="grid-coordinate top-right">PING // 12MS</span>
+                <span class="grid-coordinate bottom-left">SYS_STATUS // ACTIVE</span>
+                <span class="grid-coordinate bottom-right">HEX // 0A0A0A</span>
+            </div>
+            
+            <div class="section-content configurator-layout">
+                <!-- Títulos Principales de la Sección -->
+                <div class="configurator-header">
+                    <h1 class="main-title text-glow-platinum">SQUADS DE EJECUCIÓN</h1>
+                    <p class="configurator-subtitle">Estrategias de Escalamiento e Infraestructura de Alto Rendimiento</p>
+                </div>
+                
+                <!-- Contenedor Principal de la Consola -->
+                <div class="configurator-container">
+                    <!-- Columna Izquierda: Tarjetas Selectoras de Squads -->
+                    <div class="squads-selector">
+                        <!-- Nivel 01 Card -->
+                        <div class="squad-card active" data-squad="nivel-01">
+                            <div class="card-glow"></div>
+                            <div class="squad-level">NIVEL 01</div>
+                            <h2 class="squad-name">ESTABILIZACIÓN</h2>
+                            <p class="squad-tagline">Para marcas que necesitan orden técnico y base de conversión.</p>
+                            <span class="squad-focus">Foco: Velocidad y UX</span>
+                        </div>
+                        
+                        <!-- Nivel 02 Card -->
+                        <div class="squad-card" data-squad="nivel-02">
+                            <div class="card-glow"></div>
+                            <div class="squad-level">NIVEL 02</div>
+                            <h2 class="squad-name">ESCALAMIENTO</h2>
+                            <p class="squad-tagline">Para marcas que ya operan y necesitan automatización de ventas.</p>
+                            <span class="squad-focus">Foco: Data y Funnel</span>
+                        </div>
+                        
+                        <!-- Nivel 03 Card -->
+                        <div class="squad-card" data-squad="nivel-03">
+                            <div class="card-glow"></div>
+                            <div class="squad-level">NIVEL 03</div>
+                            <h2 class="squad-name">DOMINIO</h2>
+                            <p class="squad-tagline">Soluciones a medida con arquitectura y estrategia exclusivas.</p>
+                            <span class="squad-focus">Foco: Inmersión & Custom</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna Derecha: Consola de Control de Protocolos -->
+                    <div class="configurator-console">
+                        <div class="console-border-accent"></div>
+                        <!-- Panel de Cabecera de la Consola -->
+                        <div class="console-header">
+                            <div class="console-status">
+                                <span class="console-status-indicator"></span>
+                                <span class="console-status-text" id="active-squad-code">PROTOCOL // SEC_04_N1</span>
+                            </div>
+                            <h3 class="console-squad-title" id="console-squad-title">PROTOCOL: ESTABILIZACIÓN</h3>
+                        </div>
+                        
+                        <!-- Panel de Catálogo de Servicios (Tabla de Valor Percibido) -->
+                        <div class="console-catalog">
+                            <h4 class="console-section-title">MÓDULOS DE SERVICIO</h4>
+                            <div class="catalog-grid" id="console-catalog-list">
+                                <!-- Se llenará dinámicamente con JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Panel de Métricas de Intensidad (Barras de progreso) -->
+                        <div class="console-metrics">
+                            <h4 class="console-section-title">INDICADORES DE INTENSIDAD</h4>
+                            <div class="metric-item">
+                                <div class="metric-label">
+                                    <span>CONVERSIÓN BASE & UX</span>
+                                    <span class="metric-value" id="val-ux">90%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="fill-ux" style="width: 90%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="metric-label">
+                                    <span>AUTOMATIZACIÓN DE PROCESOS</span>
+                                    <span class="metric-value" id="val-auto">30%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="fill-auto" style="width: 30%;"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="metric-label">
+                                    <span>INMERSIÓN VISUAL & IA</span>
+                                    <span class="metric-value" id="val-ia">25%</span>
+                                </div>
+                                <div class="metric-bar-bg">
+                                    <div class="metric-bar-fill" id="fill-ia" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Botón CTA adaptativo -->
+                        <div class="console-footer">
+                            <div class="investment-tag">
+                                <span class="invest-label">INVERSIÓN ESTIMADA:</span>
+                                <span class="invest-value" id="console-price">BAJO DEMANDA</span>
+                            </div>
+                            <a href="#seccion-5" class="cta-button-ghost console-cta-button" id="console-cta">
+                                Consultar Inversión
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5 (Confianza y Liderazgo - Dorado) -->
+        <section id="seccion-5" class="section sec-gold">
+            <div class="ambient-glow"></div>
+            <div class="gold-dust-container"></div>
+            
+            <div class="section-content trust-layout">
+                <!-- Títulos Principales de la Sección -->
+                <div class="trust-header">
+                    <h1 class="main-title text-glow-gold">CONFIANZA Y LIDERAZGO</h1>
+                    <p class="trust-subtitle">Soluciones de alto impacto validadas por rendimiento técnico</p>
+                </div>
+                
+                <div class="trust-container">
+                    <!-- Columna Izquierda: Manifiesto y Rack de Logos -->
+                    <div class="trust-manifesto">
+                        <div class="manifesto-card">
+                            <h2 class="manifesto-title">SOLUCIONES DE ALTO IMPACTO PARA LÍDERES DE MERCADO</h2>
+                            <p class="manifesto-paragraph">
+                                No creemos en plantillas genéricas. Desarrollamos soluciones a medida utilizando flujos de desarrollo ágil aumentados con Inteligencia Artificial, optimizando tiempos de entrega al máximo y asegurando un código limpio, velocidad de carga óptima y conversión comercial matemática.
+                            </p>
+                            <p class="manifesto-paragraph">
+                                Diseñamos activos digitales que no solo proyectan una presencia visualmente impactante, sino que están optimizados para operar con la máxima resiliencia en la nube y maximizar el retorno de inversión comercial de tu marca.
+                            </p>
+                        </div>
+                        
+                        <!-- Rack de tecnología minimalista -->
+                        <div class="tech-stack-container">
+                            <span class="tech-stack-label">STACK PREFERIDO //</span>
+                            <div class="tech-rack">
+                                <span class="tech-badge">Next.js</span>
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Three.js</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">AWS</span>
+                                <span class="tech-badge">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Columna Derecha: Panel de Telemetría Dinámica -->
+                    <div class="telemetry-panel">
+                        <div class="console-border-accent gold-border"></div>
+                        <div class="telemetry-header">
+                            <div class="console-status">
+                                <span class="console-status-indicator gold-indicator"></span>
+                                <span class="console-status-text">SYSTEM MONITOR // KUVRA_SYS</span>
+                            </div>
+                            <h3 class="telemetry-title">TELEMETRÍA EN VIVO</h3>
+                        </div>
+                        
+                        <!-- Grid de KPIs Interactivas -->
+                        <div class="telemetry-kpis">
+                            <div class="kpi-box active" data-kpi="perf">
+                                <div class="kpi-value">100/100</div>
+                                <div class="kpi-label">LIGHTHOUSE PERF</div>
+                            </div>
+                            <div class="kpi-box" data-kpi="uptime">
+                                <div class="kpi-value">99.99%</div>
+                                <div class="kpi-label">INFRA UPTIME</div>
+                            </div>
+                            <div class="kpi-box" data-kpi="roi">
+                                <div class="kpi-value">+240%</div>
+                                <div class="kpi-label">AVG ROI GROWTH</div>
+                            </div>
+                            <div class="kpi-box" data-kpi="lat">
+                                <div class="kpi-value">14ms</div>
+                                <div class="kpi-label">API LATENCY</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Caja de Explicación de Telemetría -->
+                        <div class="telemetry-display">
+                            <div class="telemetry-display-title" id="telemetry-metric-name">Rendimiento Lighthouse</div>
+                            <p class="telemetry-display-text" id="telemetry-metric-desc">
+                                Cada línea de código se somete a pruebas automáticas de rendimiento. Optimizamos imágenes en formatos modernos, minimizamos el tamaño de bundles de JavaScript y garantizamos un renderizado inicial inmediato para alcanzar la máxima calificación en Core Web Vitals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6 (Contacto - Oro Cálido / Negro) -->
+        <section id="seccion-6" class="section sec-contact">
+            <div class="ambient-glow"></div>
+            
+            <div class="section-content contact-layout">
+                <!-- Títulos Principales de la Sección -->
+                <div class="contact-header">
+                    <h1 class="main-title text-glow-gold">INICIAR CONEXIÓN</h1>
+                    <p class="contact-subtitle">Protocolo de escalamiento para tu negocio</p>
+                </div>
+                
+                <div class="contact-container">
+                    <!-- Columna Izquierda: Formulario Glassmorphic -->
+                    <form class="contact-form" id="kuvra-contact-form" onsubmit="event.preventDefault();">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" required placeholder=" " autocomplete="off">
+                                <label for="contact-name">Tu Nombre</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="contact-company" required placeholder=" " autocomplete="off">
+                                <label for="contact-company">Empresa</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="contact-email" required placeholder=" " autocomplete="off">
+                            <label for="contact-email">Email Corporativo</label>
+                        </div>
+                        
+                        <!-- Selector de Tier / Protocolo -->
+                        <div class="protocol-selector-group">
+                            <span class="selector-label">PROTOCOLO DE INTERÉS //</span>
+                            <div class="tier-buttons">
+                                <button type="button" class="tier-btn active" data-tier="nivel-01">Nivel 01: Estabilización</button>
+                                <button type="button" class="tier-btn" data-tier="nivel-02">Nivel 02: Escalamiento</button>
+                                <button type="button" class="tier-btn" data-tier="nivel-03">Nivel 03: Dominio</button>
+                            </div>
+                            <input type="hidden" id="selected-protocol" value="nivel-01">
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="contact-message" required placeholder=" " rows="3"></textarea>
+                            <label for="contact-message">Detalles del Proyecto / Objetivos</label>
+                        </div>
+                        
+                        <button type="submit" class="cta-button-ghost contact-submit-btn">
+                            Activar Protocolo
+                        </button>
+                    </form>
+                    
+                    <!-- Columna Derecha: Conexión de Estado / Agendamiento -->
+                    <div class="contact-status-panel">
+                        <div class="status-box">
+                            <div class="status-kpis">
+                                <div class="status-item">
+                                    <span class="status-led led-green"></span>
+                                    <span class="status-label">KUVRA LAB: 2 INGENIEROS EN LÍNEA</span>
+                                </div>
+                                <div class="status-item">
+                                    <span class="status-info-text">TIEMPO PROMEDIO DE RESPUESTA: 45 MIN</span>
+                                </div>
+                            </div>
+                            
+                            <h4 class="booking-title">¿Prefieres una sesión privada?</h4>
+                            <p class="booking-text">
+                                Conversa directamente con nuestro equipo técnico para auditar tus sistemas y plantear una arquitectura de crecimiento de 15 minutos sin costes.
+                            </p>
+                            
+                            <a href="#" class="cta-button-ghost booking-btn" onclick="event.preventDefault(); alert('Conexión con Calendly simulada.');">
+                                Agendar briefing de 15 min
+                            </a>
+                        </div>
+                        
+                        <!-- Footer corporativo integrado aquí, al fondo de la última sección -->
+                        <footer class="contact-footer">
+                            <div class="footer-info">
+                                <span>© 2026 KUVRA DIGITAL</span>
+                                <span class="footer-separator">//</span>
+                                <span>SANTIAGO DE CHILE</span>
+                                <span class="footer-separator">//</span>
+                                <span>REMOTO GLOBAL</span>
+                                <span class="footer-separator">//</span>
+                                <a href="#seccion-1" class="footer-back-top">VOLVER ARRIBA</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Main JavaScript File -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
