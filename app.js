@@ -22,29 +22,58 @@ let currentFrameIndex = 0;
 let scrollProgress = 0;
 let hasAutoScrolledToSec2 = false;
 
-// Preload all frames sequentially
+// Initialize empty frames array
+for (let i = 0; i < totalFrames; i++) {
+    frames.push(null);
+}
+
+// Preload frames in a controlled queue to prevent network saturation on PC
 function preloadFrames() {
     if (!frameCanvas) return;
     
-    for (let i = 0; i < totalFrames; i++) {
-        const img = new Image();
-        // Pads index to 3 digits (e.g. 0 -> "000", 1 -> "001")
-        const frameNum = String(i).padStart(3, '0');
-        img.src = `/frames/frame_${frameNum}.webp`;
+    // 1. Load the first frame immediately so the page displays instantly
+    const firstImg = new Image();
+    firstImg.src = `/frames/frame_000.webp`;
+    
+    const handleFirstLoad = () => {
+        frames[0] = firstImg;
+        loadedCount++;
+        isLoaded = true; // Mark as loaded for the scrubbing loop to draw
+        drawFrame(0);
         
-        const handleLoad = () => {
-            loadedCount++;
-            if (loadedCount === totalFrames) {
-                isLoaded = true;
-                // Render first frame immediately once loaded
-                drawFrame(0);
-            }
-        };
+        // 2. Start preloading the remaining frames with controlled concurrency (max 3)
+        let nextToLoad = 1;
+        const maxConcurrency = 3;
         
-        img.onload = handleLoad;
-        img.onerror = handleLoad; // Gracefully handle any missing index
-        frames.push(img);
-    }
+        function loadNext() {
+            if (nextToLoad >= totalFrames) return;
+            
+            const current = nextToLoad++;
+            const img = new Image();
+            const frameNum = String(current).padStart(3, '0');
+            img.src = `/frames/frame_${frameNum}.webp`;
+            
+            const handleLoad = () => {
+                frames[current] = img;
+                loadedCount++;
+                if (loadedCount === totalFrames) {
+                    // All frames loaded
+                }
+                loadNext(); // Load the next one in queue
+            };
+            
+            img.onload = handleLoad;
+            img.onerror = handleLoad;
+        }
+        
+        // Launch parallel download threads
+        for (let c = 0; c < maxConcurrency; c++) {
+            loadNext();
+        }
+    };
+    
+    firstImg.onload = handleFirstLoad;
+    firstImg.onerror = handleFirstLoad;
 }
 preloadFrames();
 
@@ -687,14 +716,21 @@ function init3DCar() {
             // Set 90% screen scale initially
             updateCarScale();
 
-            // Add shadow rendering and material parameters
+            // Add shadow rendering and material parameters safely supporting material arrays
             carModel.traverse((node) => {
                 if (node.isMesh) {
                     node.castShadow = true;
                     node.receiveShadow = true;
                     if (node.material) {
-                        node.material.roughness = Math.min(node.material.roughness, 0.4);
-                        node.material.metalness = Math.max(node.material.metalness, 0.85);
+                        const materials = Array.isArray(node.material) ? node.material : [node.material];
+                        materials.forEach((mat) => {
+                            if (mat.roughness !== undefined && mat.roughness !== null) {
+                                mat.roughness = Math.min(mat.roughness, 0.4);
+                            }
+                            if (mat.metalness !== undefined && mat.metalness !== null) {
+                                mat.metalness = Math.max(mat.metalness, 0.85);
+                            }
+                        });
                     }
                 }
             });
