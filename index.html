@@ -3,419 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KUVRA Digital | Soluciones Digitales Inmersivas</title>
-    <meta name="description" content="KUVRA Digital - Agencia de desarrollo web premium y diseño interactivo. Creamos experiencias inmersivas 3D y de alto impacto.">
+    <title>KUVRA Forge | Ingeniería del Hábitat & Mobiliario Paramétrico</title>
+    <meta name="description" content="KUVRA Forge - Sistemas del Hábitat, Mobiliario Paramétrico Bespoke y Estructuras Complejas de Acero y Madera Noble.">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Space+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Space+Mono:wght@400;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Header / Navbar (Sticky & Transparent) -->
-    <header class="header" id="main-header">
-        <div class="nav-left">
-            <span class="status-indicator"></span>
-            <span class="status-text">KUVRA LAB // LIVE</span>
+    <!-- HUD Cursor (Retícula de Inspección) -->
+    <div id="hud-cursor" class="hud-cursor">
+        <div class="hud-center-dot"></div>
+        <div class="hud-circle"></div>
+        <div class="hud-telemetry" id="hud-telemetry-text">
+            SYS_SCAN // IDLE
+        </div>
+    </div>
+
+    <!-- Preloader de Diagnóstico CAD -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="preloader-grid"></div>
+        <div class="preloader-content">
+            <div class="preloader-title">KUVRA_FORGE // SYSTEM_INITIALIZATION</div>
+            <div class="preloader-svg-container">
+                <svg viewBox="0 0 120 120" class="preloader-cad-svg">
+                    <circle cx="60" cy="60" r="50" stroke="rgba(0, 240, 255, 0.15)" stroke-width="1" stroke-dasharray="6 4" />
+                    <!-- Abstract Chair/Structure wireframe SVG path -->
+                    <path d="M 30 90 L 30 50 L 50 30 L 70 30 L 90 50 L 90 90 M 30 70 L 90 70 M 50 70 L 50 90 M 70 70 L 70 90" stroke="#00F0FF" stroke-width="1.5" class="draw-path" fill="none" />
+                    <line x1="5" y1="60" x2="115" y2="60" stroke="rgba(255, 107, 0, 0.3)" stroke-width="0.5" stroke-dasharray="2 2" />
+                    <line x1="60" y1="5" x2="60" y2="115" stroke="rgba(255, 107, 0, 0.3)" stroke-width="0.5" stroke-dasharray="2 2" />
+                </svg>
+            </div>
+            <div class="preloader-progress-bar">
+                <div class="preloader-progress-fill" id="load-progress-fill"></div>
+            </div>
+            <div class="preloader-status" id="load-status-text">SYS_CHECK: OK // BOOTING KUVRA_SYS...</div>
+        </div>
+        <div class="preloader-gate preloader-gate-top"></div>
+        <div class="preloader-gate preloader-gate-bottom"></div>
+    </div>
+
+    <!-- Columna Lateral Fija Izquierda (Name on Left) -->
+    <div class="side-brand-panel" id="side-panel">
+        <div class="vertical-brand-wrapper">
+            <span class="grid-coordinate-left">SYS_REF // KF_01</span>
+            <a href="#seccion-1" class="vertical-brand-name">KUVRA FORGE</a>
+            <span class="vertical-brand-subtitle">// SYSTEMS</span>
         </div>
         
-        <div class="nav-center">
-            <a href="#seccion-1-parte-1" class="logo">KUVRA <span class="logo-accent">digital</span></a>
+        <!-- Telemetría de Desplazamiento (Scroll Tracker) -->
+        <div class="scroll-telemetry-indicator">
+            <div class="telemetry-laser-line">
+                <div class="laser-scanner-dot" id="laser-dot"></div>
+            </div>
+            <span class="telemetry-percentage" id="scroll-percentage">000%</span>
         </div>
-        
-        <nav class="nav-right">
-            <a href="#seccion-2" class="nav-link">Servicios</a>
-            <a href="#seccion-4" class="nav-link">Planes</a>
-            <a href="#seccion-5" class="nav-link">Confianza</a>
-            <a href="#seccion-6" class="nav-link">Contacto</a>
-        </nav>
-    </header>
+    </div>
 
     <!-- Main Scroll Container -->
     <main class="scroll-container" id="scroll-main">
         
-        <!-- SECCIÓN 1 (Tonos Joya + Humo + Secuencia de Imágenes Canvas) -->
-        <section id="seccion-1" class="section-3part">
-            <!-- Absolute Snap Anchors for CSS Scroll Snap -->
-            <div id="seccion-1-parte-1" class="snap-anchor"></div>
-            <div id="seccion-1-parte-2" class="snap-anchor"></div>
+        <!-- SECCIÓN 1: El Manifiesto (Hero + Plano CAD Vectorial) -->
+        <section id="seccion-1" class="section sec-hero">
+            <!-- Background grids & blueprints -->
+            <div class="tech-blueprint-overlay">
+                <div class="milimetric-grid"></div>
+                <div class="blueprint-scanline"></div>
+                <!-- Animated vector wireframe chair -->
+                <svg class="blueprint-vector-svg" viewBox="0 0 1000 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M200 550 L200 250 L400 150 L600 150 L800 250 L800 550 M200 380 L800 380 M400 380 L400 550 M600 380 L600 550 M300 200 L700 200 M300 200 L300 380 M700 200 L700 380" stroke="rgba(0, 240, 255, 0.08)" stroke-width="1" class="blueprint-path-animate" />
+                </svg>
+            </div>
+            <div class="ambient-glow sec-hero-glow"></div>
             
-            <!-- Sticky Wrapper covering 100vh while scrolling through parent's 600vh -->
-            <div class="sticky-wrapper">
-                <!-- Background Image Sequence Canvas (Replaces Video Tag) -->
-                <canvas id="frame-canvas" class="smoke-canvas"></canvas>
-                
-                <!-- Background Canvas for Interactive Smoke -->
-                <canvas id="smoke-canvas" class="smoke-canvas"></canvas>
-                
-                <div class="section-content">
-                    <div class="hero-text">
-                        <h1 class="main-title text-glow-jewel load-fade-in" id="reveal-title">
-                            TU NEGOCIO EN EL MAPA
-                        </h1>
-                    </div>
+            <div class="section-content hero-content">
+                <div class="terminal-header">
+                    <span class="term-status-led"></span>
+                    <span class="term-status-text">KUVRA_SYS // CORE: ESTABLE // TEMP: 24°C</span>
                 </div>
-                
-                <div class="scroll-indicator">
-                    <span class="mouse-icon"><span class="mouse-wheel"></span></span>
-                    <span>Desliza para explorar</span>
+                <h1 class="hero-main-title">MUEBLES QUE DEFINEN ESPACIOS</h1>
+                <p class="hero-tech-subtitle">DISEÑO PARAMÉTRICO Y METALURGIA DE PRECISIÓN MILIMÉTRICA</p>
+                <div class="scroll-indicator-wrapper">
+                    <div class="mouse-icon-container">
+                        <span class="mouse-wheel-line"></span>
+                    </div>
+                    <span class="scroll-text">DESLIZAR PARA INICIALIZAR HÁBITAT</span>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 2 (Azul Eléctrico + Magenta) -->
-        <section id="seccion-2" class="section sec-blue">
-            <div class="ambient-glow"></div>
-            <canvas id="services-bg-canvas" class="smoke-canvas"></canvas>
-            <div class="section-content">
-                <div class="hero-text">
-                    <h1 class="main-title">VENTAS QUE IMPULSAN</h1>
+        <!-- SECCIÓN 2: Módulos Estándar (Hardware de Espacio - Toggle CAD / Foto) -->
+        <section id="seccion-2" class="section sec-hardware">
+            <div class="ambient-glow sec-hardware-glow"></div>
+            <div class="section-content hardware-content">
+                <div class="section-header">
+                    <span class="section-badge">CATALOG // CATEGORY_01</span>
+                    <h2 class="section-title">HARDWARE DE ESPACIO</h2>
+                    <p class="section-description">Módulos estándar diseñados con la máxima pureza de sustrato y ensamblajes estructurales rígidos.</p>
                 </div>
-                
-                <!-- Cards Grid -->
-                <div class="cards-grid">
-                    <!-- Card 1 -->
-                    <div class="val-card card-stagger-1">
-                        <div class="card-icon-wrapper">
-                            <svg class="funnel-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 12H56L36 36V52L28 46V36L8 12Z" stroke="var(--accent-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <h3>Arquitectura de Conversión</h3>
-                        <span class="card-subtitle">El Pilar Técnico</span>
-                        <p>No creamos sitios web, construimos máquinas de ventas. Eliminamos la fricción en cada punto de contacto, optimizando el recorrido del usuario para maximizar el valor de vida del cliente (LTV).</p>
-                    </div>
+
+                <!-- 2-Column Product Showcase -->
+                <div class="hardware-grid">
                     
-                    <!-- Card 2 -->
-                    <div class="val-card card-stagger-2">
-                        <div class="card-icon-wrapper">
-                            <div class="counter-number" data-target="150">0%</div>
+                    <!-- Producto 1: Consola / Escritorio -->
+                    <div class="hardware-card" data-product="desk">
+                        <div class="card-viewer">
+                            <!-- Toggle Button CAD/Real -->
+                            <button class="toggle-mode-btn" data-target="desk-view">
+                                <span class="btn-led"></span><span class="btn-text">VER MODO CAD</span>
+                            </button>
+                            
+                            <!-- Viewer Container (Images / Vector Canvas) -->
+                            <div class="viewer-display" id="desk-view">
+                                <div class="view-image-wrapper">
+                                    <!-- A representation of our product (placeholder background with styled box for wireframe) -->
+                                    <div class="furniture-photo" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23181615%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F4F0EA%22 font-family=%22Cinzel%22 font-size=%2220%22>ASSET // DESK_v01</text></svg>');"></div>
+                                </div>
+                                <div class="view-cad-wrapper">
+                                    <svg viewBox="0 0 400 300" class="cad-svg-vector">
+                                        <g stroke="#00F0FF" stroke-width="1" fill="none">
+                                            <!-- Isometric Desk CAD outline -->
+                                            <path d="M80 220 L80 140 L320 140 L320 220 M80 140 L120 100 L320 100 M320 100 L320 140" />
+                                            <path d="M120 100 L120 140" />
+                                            <!-- Laser dimension lines -->
+                                            <path d="M60 140 L60 220" stroke="#FF6B00" stroke-width="0.5" stroke-dasharray="2 2" />
+                                            <text x="45" y="185" fill="#FF6B00" font-family="Space Mono" font-size="10" transform="rotate(-90 45 185)">H: 750mm</text>
+                                            <path d="M80 240 L320 240" stroke="#FF6B00" stroke-width="0.5" stroke-dasharray="2 2" />
+                                            <text x="180" y="253" fill="#FF6B00" font-family="Space Mono" font-size="10">W: 1600mm</text>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Inteligencia de Datos</h3>
-                        <span class="card-subtitle">El Pilar Analítico</span>
-                        <p>Adiós a las suposiciones. Implementamos sistemas de tracking de alta precisión para medir cada clic, escalando lo que realmente funciona y eliminando lo que drena tu presupuesto.</p>
-                    </div>
-                    
-                    <!-- Card 3 -->
-                    <div class="val-card card-stagger-3 card-pulse">
-                        <div class="card-icon-wrapper">
-                            <svg class="pulse-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 32H20L26 16L34 48L40 32H56" stroke="var(--accent-jewel)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                        <div class="card-info">
+                            <h3 class="product-name">ASSET // DESK_v01</h3>
+                            <span class="product-type">Consola Escritorio de Canto Orgánico</span>
+                            
+                            <!-- Telemetry Specs Table -->
+                            <div class="telemetry-table">
+                                <div class="tel-row">
+                                    <span class="tel-label">SUSTRATO:</span>
+                                    <span class="tel-value">Nogal Americano Macizo (40mm)</span>
+                                </div>
+                                <div class="tel-row">
+                                    <span class="tel-label">ALEACIÓN SOPORTE:</span>
+                                    <span class="tel-value">Acero Forjado Oxidado a Fuego</span>
+                                </div>
+                                <div class="tel-row">
+                                    <span class="tel-label">MASA TOTAL:</span>
+                                    <span class="tel-value">58.4 KG // COEF_STABLE: 1.0</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Aceleración de Flujos</h3>
-                        <span class="card-subtitle">El Pilar de Crecimiento</span>
-                        <p>Automatizamos la captación y el seguimiento. Tus clientes reciben el mensaje correcto en el momento exacto, garantizando una tasa de conversión constante sin intervención manual.</p>
                     </div>
-                </div>
-                
-                <!-- Section CTA -->
-                <div class="section-cta">
-                    <h4 class="cta-question">¿Listo para escalar?</h4>
-                    <a href="#seccion-5" class="cta-button-ghost">Auditar Ecosistema Digital</a>
+
+                    <!-- Producto 2: Estantería -->
+                    <div class="hardware-card" data-product="shelf">
+                        <div class="card-viewer">
+                            <!-- Toggle Button CAD/Real -->
+                            <button class="toggle-mode-btn" data-target="shelf-view">
+                                <span class="btn-led"></span><span class="btn-text">VER MODO CAD</span>
+                            </button>
+                            
+                            <!-- Viewer Container (Images / Vector Canvas) -->
+                            <div class="viewer-display" id="shelf-view">
+                                <div class="view-image-wrapper">
+                                    <div class="furniture-photo" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22 viewBox=%220 0 400 300%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23181615%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F4F0EA%22 font-family=%22Cinzel%22 font-size=%2220%22>ASSET // SHELF_v01</text></svg>');"></div>
+                                </div>
+                                <div class="view-cad-wrapper">
+                                    <svg viewBox="0 0 400 300" class="cad-svg-vector">
+                                        <g stroke="#00F0FF" stroke-width="1" fill="none">
+                                            <!-- Isometric Shelf CAD outline -->
+                                            <rect x="120" y="50" width="160" height="200" />
+                                            <line x1="120" y1="100" x2="280" y2="100" />
+                                            <line x1="120" y1="150" x2="280" y2="150" />
+                                            <line x1="120" y1="200" x2="280" y2="200" />
+                                            <!-- Laser dimension lines -->
+                                            <path d="M100 50 L100 250" stroke="#FF6B00" stroke-width="0.5" stroke-dasharray="2 2" />
+                                            <text x="85" y="160" fill="#FF6B00" font-family="Space Mono" font-size="10" transform="rotate(-90 85 160)">H: 1800mm</text>
+                                            <path d="M120 270 L280 270" stroke="#FF6B00" stroke-width="0.5" stroke-dasharray="2 2" />
+                                            <text x="180" y="285" fill="#FF6B00" font-family="Space Mono" font-size="10">W: 1200mm</text>
+                                        </g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="product-name">ASSET // SHELF_v01</h3>
+                            <span class="product-type">Estantería Modular de Suspensión Tensa</span>
+                            
+                            <!-- Telemetry Specs Table -->
+                            <div class="telemetry-table">
+                                <div class="tel-row">
+                                    <span class="tel-label">SUSTRATO:</span>
+                                    <span class="tel-value">Roble Macizo con Pátina de Carbono</span>
+                                </div>
+                                <div class="tel-row">
+                                    <span class="tel-label">TENSORES E HILOS:</span>
+                                    <span class="tel-value">Acero AISI 316 Tensado por Rosca</span>
+                                </div>
+                                <div class="tel-row">
+                                    <span class="tel-label">MASA TOTAL:</span>
+                                    <span class="tel-value">72.1 KG // RIGID_VAL: MAX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 3 (Green/Teal/Cyan) -->
-        <section id="seccion-3" class="section sec-green">
-            <!-- 3D Car WebGL Canvas -->
-            <canvas id="car-3d-canvas"></canvas>
-            <div class="ambient-glow"></div>
-            <div class="section-content">
-                <div class="hero-text">
-                    <h1 class="main-title">PRESENCIA DIGITAL PREMIUM</h1>
+        <!-- SECCIÓN 3: Estructuras Complejas (Cocinas e Ingeniería Asimétrica) -->
+        <section id="seccion-3" class="section sec-structures">
+            <div class="ambient-glow sec-struct-glow"></div>
+            <div class="section-content structures-content">
+                <div class="section-header">
+                    <span class="section-badge">BESPOKE // PROJ_ARCHIVES</span>
+                    <h2 class="section-title">ESTRUCTURAS COMPLEJAS</h2>
+                    <p class="section-description">Desafíos geométricos a gran escala: cocinas integrales monolíticas, comedores extravagantes y arquitectura del habitar.</p>
+                </div>
+
+                <!-- Editorial Asymmetric Gallery -->
+                <div class="portfolio-gallery">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item item-large">
+                        <div class="gallery-image-wrapper">
+                            <div class="gallery-photo" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23181615%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F4F0EA%22 font-family=%22Cinzel%22 font-size=%2224%22>MONOLITHIC KITCHEN // CORE_01</text></svg>');"></div>
+                            <div class="gallery-overlay-tech">
+                                <span class="gallery-tag">SYS_BUILD // KITCHEN_CORE_01</span>
+                                <p class="gallery-tech-desc">Cocina monolítica integrada en nogal oscuro carbonizado y mesón suspendido de cuarcita cepillada.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item item-medium">
+                        <div class="gallery-image-wrapper">
+                            <div class="gallery-photo" style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22450%22 viewBox=%220 0 400 450%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%23181615%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F4F0EA%22 font-family=%22Cinzel%22 font-size=%2222%22>PARAMETRIC DINING // OAK_02</text></svg>');"></div>
+                            <div class="gallery-overlay-tech">
+                                <span class="gallery-tag">SYS_BUILD // TABLE_PARAMETRIC_02</span>
+                                <p class="gallery-tech-desc">Mesa comedor de roble ahumado con patas de metal paramétrico cortado por chorro de agua e inyecciones de cobre fundido.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 4 (Gris Platino / Estructura del Configurador) -->
-        <section id="seccion-4" class="section sec-platinum">
-            <div class="ambient-glow"></div>
-            
-            <div class="cyber-grid-overlay">
-                <span class="grid-coordinate top-left">LOC // SEC_04_INIT</span>
-                <span class="grid-coordinate top-right">PING // 12MS</span>
-                <span class="grid-coordinate bottom-left">SYS_STATUS // ACTIVE</span>
-                <span class="grid-coordinate bottom-right">HEX // 0A0A0A</span>
-            </div>
-            
+        <!-- SECCIÓN 4: El Configurador de Sustratos (Consola de Inyección) -->
+        <section id="seccion-4" class="section sec-configurator">
+            <div class="ambient-glow sec-config-glow"></div>
             <div class="section-content configurator-layout">
-                <!-- Títulos Principales de la Sección -->
-                <div class="configurator-header">
-                    <h1 class="main-title text-glow-platinum">SQUADS DE EJECUCIÓN</h1>
-                    <p class="configurator-subtitle">Estrategias de Escalamiento e Infraestructura de Alto Rendimiento</p>
+                <div class="section-header">
+                    <span class="section-badge">INTERACTIVE // SIMULATION_UNIT</span>
+                    <h2 class="section-title">SIMULADOR DE INYECCIÓN</h2>
+                    <p class="section-description">Ajusta los sustratos orgánicos y las aleaciones metalúrgicas del reactor para modelar la ficha de tu mueble.</p>
                 </div>
-                
-                <!-- Contenedor Principal de la Consola -->
-                <div class="configurator-container">
-                    <!-- Columna Izquierda: Tarjetas Selectoras de Squads -->
-                    <div class="squads-selector">
-                        <!-- Nivel 01 Card -->
-                        <div class="squad-card active" data-squad="nivel-01">
-                            <div class="card-glow"></div>
-                            <div class="squad-level">NIVEL 01</div>
-                            <h2 class="squad-name">ESTABILIZACIÓN</h2>
-                            <p class="squad-tagline">Para marcas que necesitan orden técnico y base de conversión.</p>
-                            <span class="squad-focus">Foco: Velocidad y UX</span>
+
+                <div class="config-console-wrapper">
+                    <!-- Left: Control Panels -->
+                    <div class="console-controls">
+                        <!-- Sustrato Selector -->
+                        <div class="control-group">
+                            <span class="control-group-title">SUSTRATO ORGÁNICO // WOOD</span>
+                            <div class="control-buttons">
+                                <button class="console-btn active" data-type="wood" data-value="nogal" data-name="Nogal Americano Macizo">NOGAL AMERICANO</button>
+                                <button class="console-btn" data-type="wood" data-value="roble" data-name="Roble Ahumado Carbono">ROBLE CARBONIZADO</button>
+                                <button class="console-btn" data-type="wood" data-value="pino" data-name="Pino de Oregón Selección">PINO SELECCIÓN</button>
+                            </div>
                         </div>
-                        
-                        <!-- Nivel 02 Card -->
-                        <div class="squad-card" data-squad="nivel-02">
-                            <div class="card-glow"></div>
-                            <div class="squad-level">NIVEL 02</div>
-                            <h2 class="squad-name">ESCALAMIENTO</h2>
-                            <p class="squad-tagline">Para marcas que ya operan y necesitan automatización de ventas.</p>
-                            <span class="squad-focus">Foco: Data y Funnel</span>
-                        </div>
-                        
-                        <!-- Nivel 03 Card -->
-                        <div class="squad-card" data-squad="nivel-03">
-                            <div class="card-glow"></div>
-                            <div class="squad-level">NIVEL 03</div>
-                            <h2 class="squad-name">DOMINIO</h2>
-                            <p class="squad-tagline">Soluciones a medida con arquitectura y estrategia exclusivas.</p>
-                            <span class="squad-focus">Foco: Inmersión & Custom</span>
+
+                        <!-- Aleación Selector -->
+                        <div class="control-group">
+                            <span class="control-group-title">ALEACIÓN ESTRUCTURAL // METAL</span>
+                            <div class="control-buttons">
+                                <button class="console-btn active" data-type="metal" data-value="cobre" data-name="Cobre Soldado Oxidado" data-color="#FF6B00">COBRE AL FUEGO</button>
+                                <button class="console-btn" data-type="metal" data-value="acero" data-name="Acero AISI 1020 Cepillado" data-color="#00F0FF">ACERO GRIS CEPILLADO</button>
+                                <button class="console-btn" data-type="metal" data-value="hierro" data-name="Hierro Fundido Carbono Mate" data-color="#8E8A85">HIERRO CARBONO</button>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Columna Derecha: Consola de Control de Protocolos -->
-                    <div class="configurator-console">
-                        <div class="console-border-accent"></div>
-                        <!-- Panel de Cabecera de la Consola -->
-                        <div class="console-header">
-                            <div class="console-status">
-                                <span class="console-status-indicator"></span>
-                                <span class="console-status-text" id="active-squad-code">PROTOCOL // SEC_04_N1</span>
-                            </div>
-                            <h3 class="console-squad-title" id="console-squad-title">PROTOCOL: ESTABILIZACIÓN</h3>
+
+                    <!-- Right: Terminal Output & Logger -->
+                    <div class="console-terminal">
+                        <div class="terminal-header-console">
+                            <span class="terminal-indicator-led"></span>
+                            <span class="terminal-title-text">KUVRA_FORGE_SIMULATOR // OUTPUT</span>
                         </div>
-                        
-                        <!-- Panel de Catálogo de Servicios (Tabla de Valor Percibido) -->
-                        <div class="console-catalog">
-                            <h4 class="console-section-title">MÓDULOS DE SERVICIO</h4>
-                            <div class="catalog-grid" id="console-catalog-list">
-                                <!-- Se llenará dinámicamente con JS -->
-                            </div>
+                        <div class="terminal-output-body">
+                            <div class="log-line text-cyan">SYSTEM_READY // INICIALIZANDO SIMULACIÓN</div>
+                            <div class="log-line">// CARGANDO CONFIGURACIÓN DEFECTO...</div>
+                            <div class="log-line" id="log-wood">SUSTRATO_CARGADO // nogal_americano.mtl</div>
+                            <div class="log-line" id="log-metal">ALEACION_CARGADA // cobre_soldado.alloy</div>
+                            <div class="log-line" id="log-status">MONITOR_DE_ESTADO // SISTEMA ESTABLE</div>
                         </div>
-                        
-                        <!-- Panel de Métricas de Intensidad (Barras de progreso) -->
-                        <div class="console-metrics">
-                            <h4 class="console-section-title">INDICADORES DE INTENSIDAD</h4>
-                            <div class="metric-item">
-                                <div class="metric-label">
-                                    <span>CONVERSIÓN BASE & UX</span>
-                                    <span class="metric-value" id="val-ux">90%</span>
-                                </div>
-                                <div class="metric-bar-bg">
-                                    <div class="metric-bar-fill" id="fill-ux" style="width: 90%;"></div>
-                                </div>
+                        <div class="terminal-telemetry-panel">
+                            <div class="kpi-panel">
+                                <span class="kpi-panel-label">DENSIDAD SUSTRATO:</span>
+                                <span class="kpi-panel-val" id="val-density">680 kg/m³</span>
                             </div>
-                            
-                            <div class="metric-item">
-                                <div class="metric-label">
-                                    <span>AUTOMATIZACIÓN DE PROCESOS</span>
-                                    <span class="metric-value" id="val-auto">30%</span>
-                                </div>
-                                <div class="metric-bar-bg">
-                                    <div class="metric-bar-fill" id="fill-auto" style="width: 30%;"></div>
-                                </div>
+                            <div class="kpi-panel">
+                                <span class="kpi-panel-label">COLOR DE SOLDADURA:</span>
+                                <span class="kpi-panel-val" id="val-weld-color" style="color: #FF6B00;">#FF6B00</span>
                             </div>
-                            
-                            <div class="metric-item">
-                                <div class="metric-label">
-                                    <span>INMERSIÓN VISUAL & IA</span>
-                                    <span class="metric-value" id="val-ia">25%</span>
-                                </div>
-                                <div class="metric-bar-bg">
-                                    <div class="metric-bar-fill" id="fill-ia" style="width: 25%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Botón CTA adaptativo -->
-                        <div class="console-footer">
-                            <div class="investment-tag">
-                                <span class="invest-label">INVERSIÓN ESTIMADA:</span>
-                                <span class="invest-value" id="console-price">BAJO DEMANDA</span>
-                            </div>
-                            <a href="#seccion-5" class="cta-button-ghost console-cta-button" id="console-cta">
-                                Consultar Inversión
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 5 (Confianza y Liderazgo - Dorado) -->
-        <section id="seccion-5" class="section sec-gold">
-            <div class="ambient-glow"></div>
-            <div class="gold-dust-container"></div>
-            
-            <div class="section-content trust-layout">
-                <!-- Títulos Principales de la Sección -->
-                <div class="trust-header">
-                    <h1 class="main-title text-glow-gold">CONFIANZA Y LIDERAZGO</h1>
-                    <p class="trust-subtitle">Soluciones de alto impacto validadas por rendimiento técnico</p>
+        <!-- SECCIÓN 5: Protocolo de Diseño (Formulario de Captura Hacker) -->
+        <section id="seccion-5" class="section sec-protocol">
+            <div class="ambient-glow sec-protocol-glow"></div>
+            <div class="section-content protocol-content">
+                <div class="section-header">
+                    <span class="section-badge">SYS_INIT // LAUNCH_PROTOCOL</span>
+                    <h2 class="section-title">INICIAR PROTOCOLO</h2>
+                    <p class="section-description">Completa la especificación espacial y cuéntanos sobre tu idea de sustratos e ingeniería de cocinas. Respondemos en un ciclo de 45 minutos.</p>
                 </div>
-                
-                <div class="trust-container">
-                    <!-- Columna Izquierda: Manifiesto y Rack de Logos -->
-                    <div class="trust-manifesto">
-                        <div class="manifesto-card">
-                            <h2 class="manifesto-title">SOLUCIONES DE ALTO IMPACTO PARA LÍDERES DE MERCADO</h2>
-                            <p class="manifesto-paragraph">
-                                No creemos en plantillas genéricas. Desarrollamos soluciones a medida utilizando flujos de desarrollo ágil aumentados con Inteligencia Artificial, optimizando tiempos de entrega al máximo y asegurando un código limpio, velocidad de carga óptima y conversión comercial matemática.
-                            </p>
-                            <p class="manifesto-paragraph">
-                                Diseñamos activos digitales que no solo proyectan una presencia visualmente impactante, sino que están optimizados para operar con la máxima resiliencia en la nube y maximizar el retorno de inversión comercial de tu marca.
-                            </p>
-                        </div>
-                        
-                        <!-- Rack de tecnología minimalista -->
-                        <div class="tech-stack-container">
-                            <span class="tech-stack-label">STACK PREFERIDO //</span>
-                            <div class="tech-rack">
-                                <span class="tech-badge">Next.js</span>
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Three.js</span>
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">AWS</span>
-                                <span class="tech-badge">Docker</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Columna Derecha: Panel de Telemetría Dinámica -->
-                    <div class="telemetry-panel">
-                        <div class="console-border-accent gold-border"></div>
-                        <div class="telemetry-header">
-                            <div class="console-status">
-                                <span class="console-status-indicator gold-indicator"></span>
-                                <span class="console-status-text">SYSTEM MONITOR // KUVRA_SYS</span>
-                            </div>
-                            <h3 class="telemetry-title">TELEMETRÍA EN VIVO</h3>
-                        </div>
-                        
-                        <!-- Grid de KPIs Interactivas -->
-                        <div class="telemetry-kpis">
-                            <div class="kpi-box active" data-kpi="perf">
-                                <div class="kpi-value">100/100</div>
-                                <div class="kpi-label">LIGHTHOUSE PERF</div>
-                            </div>
-                            <div class="kpi-box" data-kpi="uptime">
-                                <div class="kpi-value">99.99%</div>
-                                <div class="kpi-label">INFRA UPTIME</div>
-                            </div>
-                            <div class="kpi-box" data-kpi="roi">
-                                <div class="kpi-value">+240%</div>
-                                <div class="kpi-label">AVG ROI GROWTH</div>
-                            </div>
-                            <div class="kpi-box" data-kpi="lat">
-                                <div class="kpi-value">14ms</div>
-                                <div class="kpi-label">API LATENCY</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Caja de Explicación de Telemetría -->
-                        <div class="telemetry-display">
-                            <div class="telemetry-display-title" id="telemetry-metric-name">Rendimiento Lighthouse</div>
-                            <p class="telemetry-display-text" id="telemetry-metric-desc">
-                                Cada línea de código se somete a pruebas automáticas de rendimiento. Optimizamos imágenes en formatos modernos, minimizamos el tamaño de bundles de JavaScript y garantizamos un renderizado inicial inmediato para alcanzar la máxima calificación en Core Web Vitals.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- SECCIÓN 6 (Contacto - Oro Cálido / Negro) -->
-        <section id="seccion-6" class="section sec-contact">
-            <div class="ambient-glow"></div>
-            
-            <div class="section-content contact-layout">
-                <!-- Títulos Principales de la Sección -->
-                <div class="contact-header">
-                    <h1 class="main-title text-glow-gold">INICIAR CONEXIÓN</h1>
-                    <p class="contact-subtitle">Protocolo de escalamiento para tu negocio</p>
-                </div>
-                
-                <div class="contact-container">
-                    <!-- Columna Izquierda: Formulario Glassmorphic -->
-                    <form class="contact-form" id="kuvra-contact-form" onsubmit="event.preventDefault();">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="contact-name" required placeholder=" " autocomplete="off">
-                                <label for="contact-name">Tu Nombre</label>
+                <div class="protocol-form-wrapper">
+                    <!-- Glassmorphic Terminal Form -->
+                    <form class="hacker-form" id="forge-contact-form" onsubmit="event.preventDefault();">
+                        <div class="form-row-dual">
+                            <div class="hacker-input-group">
+                                <input type="text" id="lead-name" required placeholder=" " autocomplete="off">
+                                <label for="lead-name">INGENIERO / CLIENTE</label>
                             </div>
-                            <div class="form-group">
-                                <input type="text" id="contact-company" required placeholder=" " autocomplete="off">
-                                <label for="contact-company">Empresa</label>
+                            <div class="hacker-input-group">
+                                <input type="text" id="lead-org" required placeholder=" " autocomplete="off">
+                                <label for="lead-org">ORGANIZACIÓN / FIRMA</label>
                             </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <input type="email" id="contact-email" required placeholder=" " autocomplete="off">
-                            <label for="contact-email">Email Corporativo</label>
+
+                        <div class="hacker-input-group">
+                            <input type="email" id="lead-email" required placeholder=" " autocomplete="off">
+                            <label for="lead-email">EMAIL PROTOCOLO DE CONEXIÓN</label>
                         </div>
-                        
-                        <!-- Selector de Tier / Protocolo -->
-                        <div class="protocol-selector-group">
-                            <span class="selector-label">PROTOCOLO DE INTERÉS //</span>
-                            <div class="tier-buttons">
-                                <button type="button" class="tier-btn active" data-tier="nivel-01">Nivel 01: Estabilización</button>
-                                <button type="button" class="tier-btn" data-tier="nivel-02">Nivel 02: Escalamiento</button>
-                                <button type="button" class="tier-btn" data-tier="nivel-03">Nivel 03: Dominio</button>
+
+                        <div class="form-row-select">
+                            <span class="select-hud-label">TIPO DE SISTEMA REQUERIDO //</span>
+                            <div class="interactive-select-buttons">
+                                <button type="button" class="select-btn active" data-system="standard">MODULO ESTANDAR</button>
+                                <button type="button" class="select-btn" data-system="kitchen">COCINA INTEGRADA</button>
+                                <button type="button" class="select-btn" data-system="extravagant">DISEÑO EXTRAVAGANTE</button>
                             </div>
-                            <input type="hidden" id="selected-protocol" value="nivel-01">
+                            <input type="hidden" id="system-type" value="standard">
                         </div>
-                        
-                        <div class="form-group">
-                            <textarea id="contact-message" required placeholder=" " rows="3"></textarea>
-                            <label for="contact-message">Detalles del Proyecto / Objetivos</label>
+
+                        <div class="hacker-input-group">
+                            <textarea id="lead-specs" required placeholder=" " rows="3"></textarea>
+                            <label for="lead-specs">ESPECIFICACIONES DE SUSTRATO / ESCALA Y DIMENSIONES</label>
                         </div>
-                        
-                        <button type="submit" class="cta-button-ghost contact-submit-btn">
-                            Activar Protocolo
+
+                        <button type="submit" class="hacker-submit-btn">
+                            [ INICIAR PROTOCOLO DE CONSTRUCCIÓN ]
                         </button>
                     </form>
-                    
-                    <!-- Columna Derecha: Conexión de Estado / Agendamiento -->
-                    <div class="contact-status-panel">
-                        <div class="status-box">
-                            <div class="status-kpis">
-                                <div class="status-item">
-                                    <span class="status-led led-green"></span>
-                                    <span class="status-label">KUVRA LAB: 2 INGENIEROS EN LÍNEA</span>
-                                </div>
-                                <div class="status-item">
-                                    <span class="status-info-text">TIEMPO PROMEDIO DE RESPUESTA: 45 MIN</span>
-                                </div>
+
+                    <!-- Sidebar Status console -->
+                    <div class="form-status-panel">
+                        <div class="status-console-box">
+                            <div class="status-console-header">
+                                <span class="blink-green"></span>
+                                <span class="status-console-title">KUVRA_FORGE // SYS_MONITOR</span>
                             </div>
-                            
-                            <h4 class="booking-title">¿Prefieres una sesión privada?</h4>
-                            <p class="booking-text">
-                                Conversa directamente con nuestro equipo técnico para auditar tus sistemas y plantear una arquitectura de crecimiento de 15 minutos sin costes.
+                            <p class="status-console-text">
+                                AL ENVIAR, TUS DATOS SE ENCRIPTARÁN Y NUESTRO TALLER DE METALURGIA Y DISEÑO CAD INICIARÁ EL ANÁLISIS DE FACTIBILIDAD TÉCNICA.
                             </p>
-                            
-                            <a href="#" class="cta-button-ghost booking-btn" onclick="event.preventDefault(); alert('Conexión con Calendly simulada.');">
-                                Agendar briefing de 15 min
-                            </a>
+                            <div class="status-telemetry-rack">
+                                <div class="stat-badge">CNC_ONLINE: OK</div>
+                                <div class="stat-badge">LASER_CUT: ONLINE</div>
+                                <div class="stat-badge">FORGE_QUEUE: 0</div>
+                            </div>
                         </div>
-                        
-                        <!-- Footer corporativo integrado aquí, al fondo de la última sección -->
-                        <footer class="contact-footer">
-                            <div class="footer-info">
-                                <span>© 2026 KUVRA DIGITAL</span>
-                                <span class="footer-separator">//</span>
-                                <span>SANTIAGO DE CHILE</span>
-                                <span class="footer-separator">//</span>
-                                <span>REMOTO GLOBAL</span>
-                                <span class="footer-separator">//</span>
-                                <a href="#seccion-1" class="footer-back-top">VOLVER ARRIBA</a>
+
+                        <footer class="forge-footer">
+                            <div class="footer-links">
+                                <span>© 2026 KUVRA FORGE</span>
+                                <span>//</span>
+                                <span>METALURGIA Y DISEÑO</span>
+                                <span>//</span>
+                                <a href="#seccion-1" class="back-top-link">REGRESAR AL CORE</a>
                             </div>
                         </footer>
                     </div>
